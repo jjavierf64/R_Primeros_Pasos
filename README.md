@@ -74,6 +74,12 @@ R puede utilizar números enteros, reales o complejos y cada uno puede aplicarse
 | ---- | ----- | ----- | ---- | --------- | -------------- |
 | x+y  | x-y   | x*y   | x/y  | x**y  x^y | A%*%B          |
 
+#### Cifras Significativas
+
+```r
+> options(digits=cifras_significativas)
+```
+
 ## Funciones
 
 | Significado Matemático        | Código                 |
@@ -205,3 +211,32 @@ Fila2            4            5            6
 | `xor(A,B)`   | `XOR` / Disyunción Exclusiva              |
 | `any(A,B,C)` | `TRUE`si *cualquier variable* es `TRUE`   |
 | `all(A,B,C)` | `TRUE`si *todas las variables* son `TRUE` |
+
+
+
+### Funciones de Información y Conversión
+
+Existen funciones de información, que devuelven estados `TRUE`o `FALSE`según los parámetros con que se evalúe una variable. Tienen la forma de:
+
+```r
+is.<método>(variable)
+```
+
+
+
+También existen funciones de conversión de variables, que buscan transformar una variable de cierto tipo en un valor de otro tipo. Tienen la forma de:
+
+```r
+as.<metodo>(variable)
+```
+
+
+
+Para obtener una lista de los métodos disponibles en cada caso se puede utilizar el comando:
+
+```r
+> methods(as)
+> methods(is)
+```
+
+ 
