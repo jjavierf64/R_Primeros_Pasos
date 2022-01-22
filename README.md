@@ -70,11 +70,9 @@ A modo de práctica es posible importar datasets que existen dentro de r de la s
 
 R puede utilizar números enteros, reales o complejos y cada uno puede aplicarse a una función.
 
-| Suma | Resta | Mult. | Div. | Poten.    |
-| ---- | ----- | ----- | ---- | --------- |
-| x+y  | x-y   | x*y   | x/y  | x**y  x^y |
-
-
+| Suma | Resta | Mult. | Div. | Poten.    | Prod. Matrices |
+| ---- | ----- | ----- | ---- | --------- | -------------- |
+| x+y  | x-y   | x*y   | x/y  | x**y  x^y | A%*%B          |
 
 ## Funciones
 
@@ -107,10 +105,6 @@ R puede utilizar números enteros, reales o complejos y cada uno puede aplicarse
 | Redondeo a *n* decimales      | `> round(x,n)`         |
 | Elimina el decimal            | `> trunc(x)`           |
 
-
-
-
-
 ## Tipos de Variables
 
 ### Simples
@@ -135,11 +129,63 @@ V = c(v1, v2, v3, ..., vn)
 | `list(objeto1=c(a,b), objeto2="texto", objeto3)` | Crea una lista con los objetos dados                        |
 | `V[n]`                                           | Valor enésimo de V                                          |
 | `V[-n]`                                          | Todos los valores de V excepto el enésimo                   |
+| `V[-(a:b)]`                                      | Todos los valores de V excepto los comprendidos entre a y b |
 | `V[c(a,b,c)]`                                    | Devuelve los valores en las posiciones a, b y c.            |
 | `V[x>a & x<b]`                                   | Devuelve los valores que sean mayores a *a* y menores a *b* |
-
-
 
 ### Matrices
 
 Las matrices pueden entenderse como un vector de vectores, y se definen de la manera:
+
+```r
+M = matrix( c(1,2,3,4,5,6), nrow=2, ncol=3, byrow=TRUE) 
+
+>M
+     [,1] [,2] [,3]
+[1,]   1    2    3
+[2,]   4    5    6
+```
+
+```r
+M = matrix( c(1,2,3,4,5,6), nrow=2, ncol=3) 
+
+>M
+     [,1] [,2] [,3]
+[1,]   1    3    5
+[2,]   2    4    6
+```
+
+Para añadir títulos a las Filas y Columnas se establece por uso de *dimnames*:
+
+```r
+dimnames=list( c( "Fila1", "Fila2"), c( "Columna1", "Columna2", "Columna3"))
+```
+
+```r
+M = matrix( c(1,2,3,4,5,6), nrow=2, ncol=3, byrow=TRUE, dimnames=list( c( "Fila1", "Fila2"), c( "Columna1", "Columna2", "Columna3"))) 
+
+>M
+          Columna1     Columna2     Columna3
+Fila1            1            2            3
+Fila2            4            5            6
+```
+
+#### Confección de Matrices
+
+| Función                                 | Significado                                                                                                        |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `rbind( vector1, vector2, vector3)`     | Define la matriz a partir de los vectores *o matrices* del input como filas.                                       |
+| `cbind( vector1, vector2, vector3)`     | Define la matriz a partir de los vectores *o matrices* del input como columnas.                                    |
+| `array(vector, dim=c(filas, columnas))` | Define la matriz de (filas, columnas) con los elementos del vector ordenados por columna. Es similar a `matrix()`. |
+
+
+
+#### Selección
+
+| Función                                             | Output                                                           |
+| --------------------------------------------------- | ---------------------------------------------------------------- |
+| `A[ fila, columna]`                                 | El elemento en la fila y columna indicadas.                      |
+| `A[fila,]`                                          | Fila indicada                                                    |
+| `A[,columna]`                                       | Columna indicada                                                 |
+| `A[ a:b, c:d]`                                      | Submatriz de las filas a:b y columnas c:d                        |
+| `A[ c( filaN, filaM, filaK), c( colG, colH, colJ)]` | Submatriz con las filas y columnas específicamente seleccionadas |
