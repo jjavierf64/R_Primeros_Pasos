@@ -189,3 +189,19 @@ Fila2            4            5            6
 | `A[,columna]`                                       | Columna indicada                                                 |
 | `A[ a:b, c:d]`                                      | Submatriz de las filas a:b y columnas c:d                        |
 | `A[ c( filaN, filaM, filaK), c( colG, colH, colJ)]` | Submatriz con las filas y columnas específicamente seleccionadas |
+
+
+
+### Operadores Lógicos y Relacionales
+
+| Operador     | Función                                   |
+| ------------ | ----------------------------------------- |
+| `A==B`       | Es igual a                                |
+| `<`  ,  `<=` | Menor, Menor o igual                      |
+| `>` , `>=`   | Mayor, Mayor o igual                      |
+| `A!=B`       | `NOT` / Distinto de, Negación             |
+| `A&B`        | `AND` / Y, Intersección lógica            |
+| `A\|B`       | `OR` / Disyunción                         |
+| `xor(A,B)`   | `XOR` / Disyunción Exclusiva              |
+| `any(A,B,C)` | `TRUE`si *cualquier variable* es `TRUE`   |
+| `all(A,B,C)` | `TRUE`si *todas las variables* son `TRUE` |
